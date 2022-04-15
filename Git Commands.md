@@ -77,6 +77,7 @@
 
 1. `git merge <branch_name_other_than_checked_out_branch>` : In order to merge some branch other than the checked out branch, into the checked out branch, use this command.
 2. When merging, there might be conflicts which must be handled.
+3. After handling the conflicts, you will have to again add these files to staging. Then commit and push these changes.
 
 ### Delete a branch
 
