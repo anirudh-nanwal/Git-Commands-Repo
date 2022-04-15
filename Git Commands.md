@@ -12,6 +12,7 @@
 5. `git remote add origin <Repository_URL>` : Login to github and now you will see an empty repository. Copy the SSH or HTTPS URL and paste it in this command to add the origin to the local repository.
 6. `git push -u origin master` : Use this command to push the changes to the remote repository. The -u sets the branch as upstream. Setting a branch as upstream makes the local branch to track the branch on the remote when multiple branches exists on the remote. In this command, we have made the master branch in the origin as the current upstream branch.
 7. `git push -u <remote_name> <branch_name>` : The original syntax of the above command.
+8. The above command to track the newly created branch (master branch) is an important step otherwise you will not be able to push the changes to the remote.
 
 ### Create a Repository on Github out of existing local repository
 
@@ -22,6 +23,7 @@
 5. `git remote add origin <Repository_URL>` : Login to github and create a repository in the github. Copy the SSH or HTTPS URL and paste it in this command to add the origin to the remote repository.
 6. `git push -u origin master` : Use this command to push the changes to the remote repository. The -u sets the branch as upstream. Setting a branch as upstream makes the local branch to track the branch (tracking branch) on the remote when multiple branches exists on the remote. In this command, we have made the master branch in the origin as the current upstream branch.
 7. `git push -u <remote_name> <branch_name>` : The original syntax of the above command.
+8. The above command to track the newly created branch (master branch) is an important step otherwise you will not be able to push the changes to the remote.
 
 ### Cloning a Git Repository
 
@@ -57,7 +59,7 @@
 8. `git reset <commit> -- <path>` :  Default commit value is HEAD. If specified, it will reset the index entries to the state at the specified commit hash.
 9. `git status` : To check all the files which have been changed or are staged for commit.
 10. `git commit -m "<message_body>"` : Commits the staged file with message body.
-11. `git push -u origin <Branch_name>` : Pushes the commit to the specified branch in the remote. Using the -u flags sets the specified branch as the upstream branch and will be tracked by the local repository.
+11. `git push -u origin <Branch_name>` : Pushes the commit to the specified branch in the remote. Using the -u flags sets the specified branch as the upstream branch and will be tracked by the local repository. This tracking command must be done for a newly created branch so that these branches can be tracked on the remote. Otherwise, for already existing branches on the remote, use `git push` command directly.
 12. `git reset --soft HEAD~<number_of_commits_to_revert>` : This command reverts all the commits that have not been pushed yet. Also, the changes will go back to stage. You can verify using `git status` command. use `git restore --staged <file_name>` command to remove a particular file from the stage or similar commands.
 13. `git log --oneline` : This file will show all the commits that have been pushed to the remote with a unique commit hash.
 14. `git revert <commit_hash> --no-edit` : This command reverts the commit that has been pushed to the specified commit hash. Also, the --no-edit flag option prevents git from asking you to enter in a commit message. Not adding this option will open VIM text editor.
@@ -70,3 +72,14 @@
 3. `git fetch <remote_name>` : This command will download all the branches from the remote.
 4. `git fetch <remote_name> <branch_name>` : This command will download all the content from the specified branch.
 5. `git fetch -all` : This command will fetch all registered remotes and their branches.
+
+### Git Merge
+
+1. `git merge <branch_name_other_than_checked_out_branch>` : In order to merge some branch other than the checked out branch, into the checked out branch, use this command.
+2. When merging, there might be conflicts which must be handled.
+
+### Delete a branch
+
+1. `git push origin --delete <branch_name>` : This command deletes a remote branch. Use `git pull` to fetch these changes from the remote.
+2. `git branch -d <branch_name>` : Deletes a branch only if it has already been merged. Also, this branch must not be the checked out branch.
+3. `git branch -D <branch_name>` : Deletes a branch forcefully. Also, this branch must not be the checked out branch.
