@@ -20,7 +20,7 @@
 3. `git add .` : This command will stage the existing files in the local repository.
 4. `git commit -m "First commit"` : Commit this file to make a first commit.
 5. `git remote add origin <Repository_URL>` : Login to github and create a repository in the github. Copy the SSH or HTTPS URL and paste it in this command to add the origin to the remote repository.
-6. `git push -u origin master` : Use this command to push the changes to the remote repository. The -u sets the branch as upstream. Setting a branch as upstream makes the local branch to track the branch on the remote when multiple branches exists on the remote. In this command, we have made the master branch in the origin as the current upstream branch.
+6. `git push -u origin master` : Use this command to push the changes to the remote repository. The -u sets the branch as upstream. Setting a branch as upstream makes the local branch to track the branch (tracking branch) on the remote when multiple branches exists on the remote. In this command, we have made the master branch in the origin as the current upstream branch.
 7. `git push <remote_name> <branch_name>` : The original syntax of the above command.
 
 ### Cloning a Git Repository
@@ -31,10 +31,10 @@
 ### Creating a new branch
 
 1. `git checkout -b "<Branch_Name>"` : Insert the branch name that you want to use and execute this command to create a new branch.
-2. Remember, the branch name must not exist alreaady on the remote otherwise it will simple just switch to that branch instead of creating a new branch. The -b flag simply tells git to switch to that branch after creating the branch. Otherwise, it will stay on the branch that you are currently on after creating a new branch.
+2. Remember, the branch name must not exist alreaady on the remote otherwise it will simple just switch to that branch instead of creating a new branch. The -b flag simply tells git to run `git branch` before running this command.
 3. `git fetch --all` : This commands fetches all the registered remotes and their branches.
 4. `git branch` : Shows all the branches that exist on the remote.
-5. 
+5. `git checkout -b <branch_name> <existing_branch>` : By default, new branches are created from the current checked out branch (Head). Passing the extra parameter which is the existing branch name will enable git to create a new branch out of the head of that branch instead of the current checked out branch's head.
 
 ### Uninitializing the Git repository
 
