@@ -58,6 +58,10 @@
 9. `git status` : To check all the files which have been changed or are staged for commit.
 10. `git commit -m "<message_body>"` : Commits the staged file with message body.
 11. `git push -u origin <Branch_name>` : Pushes the commit to the specified branch in the remote. Using the -u flags sets the specified branch as the upstream branch and will be tracked by the local repository.
+12. `git reset --soft HEAD~<number_of_commits_to_revert>` : This command reverts all the commits that have not been pushed yet. Also, the changes will go back to stage. You can verify using `git status` command. use `git restore --staged <file_name>` command to remove a particular file from the stage or similar commands.
+13. `git log --oneline` : This file will show all the commits that have been pushed to the remote with a unique commit hash.
+14. `git revert <commit_hash> --no-edit` : This command reverts the commit that has been pushed to the specified commit hash. Also, the --no-edit flag option prevents git from asking you to enter in a commit message. Not adding this option will open VIM text editor.
+15. The above command will make a new commit that is opposite of the existing commit , reverting the files to their previous state as if it was never changed. Next, use `git push` command to push these changes to the remote repo.
 
 ### Git updates
 
