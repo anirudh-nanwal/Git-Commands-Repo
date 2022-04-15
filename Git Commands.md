@@ -81,5 +81,8 @@
 ### Delete a branch
 
 1. `git push origin --delete <branch_name>` : This command deletes a remote branch. Use `git pull` to fetch these changes from the remote.
-2. `git branch -d <branch_name>` : Deletes a branch only if it has already been merged. Also, this branch must not be the checked out branch.
-3. `git branch -D <branch_name>` : Deletes a branch forcefully. Also, this branch must not be the checked out branch.
+2. `git branch -d <branch_name>` : Deletes a local branch only if it has already been merged. Also, this branch must not be the checked out branch. The result of this will contain SHA1 (Deleted branch master2 (was 130d7ba)).
+3. `git branch -D <branch_name>` : Deletes a local branch forcefully. Also, this branch must not be the checked out branch. The result of this will contain SHA1 (Deleted branch master2 (was 130d7ba)).
+4. `git branch <branch_name> <remote_name>/<branch_name>` : In order to restore a locally deleted branch, use this command.
+5. When you a delete a branch locally, SHA1 will be mentioned in the result which we can use to restore this locally deleted branch.
+6. `git branch <branch_name> <SHA1>` : The command for above explanantion.
