@@ -11,7 +11,7 @@
 4. `git commit -m "First commit"` : Commit this file to make a first commit.
 5. `git remote add origin <Repository_URL>` : Login to github and now you will see an empty repository. Copy the SSH or HTTPS URL and paste it in this command to add the origin to the local repository.
 6. `git push -u origin master` : Use this command to push the changes to the remote repository. The -u sets the branch as upstream. Setting a branch as upstream makes the local branch to track the branch on the remote when multiple branches exists on the remote. In this command, we have made the master branch in the origin as the current upstream branch.
-7. `git push <remote_name> <branch_name>` : The original syntax of the above command.
+7. `git push -u <remote_name> <branch_name>` : The original syntax of the above command.
 
 ### Create a Repository on Github out of existing local repository
 
@@ -21,7 +21,7 @@
 4. `git commit -m "First commit"` : Commit this file to make a first commit.
 5. `git remote add origin <Repository_URL>` : Login to github and create a repository in the github. Copy the SSH or HTTPS URL and paste it in this command to add the origin to the remote repository.
 6. `git push -u origin master` : Use this command to push the changes to the remote repository. The -u sets the branch as upstream. Setting a branch as upstream makes the local branch to track the branch (tracking branch) on the remote when multiple branches exists on the remote. In this command, we have made the master branch in the origin as the current upstream branch.
-7. `git push <remote_name> <branch_name>` : The original syntax of the above command.
+7. `git push -u <remote_name> <branch_name>` : The original syntax of the above command.
 
 ### Cloning a Git Repository
 
@@ -30,11 +30,16 @@
 
 ### Creating a new branch
 
-1. `git checkout -b "<Branch_Name>"` : Insert the branch name that you want to use and execute this command to create a new branch.
+1. `git checkout -b "<branch_name>"` : Insert the branch name that you want to use and execute this command to create a new branch.
 2. Remember, the branch name must not exist alreaady on the remote otherwise it will simple just switch to that branch instead of creating a new branch. The -b flag simply tells git to run `git branch` before running this command.
 3. `git fetch --all` : This commands fetches all the registered remotes and their branches.
 4. `git branch` : Shows all the branches that exist on the remote.
 5. `git checkout -b <branch_name> <existing_branch>` : By default, new branches are created from the current checked out branch (Head). Passing the extra parameter which is the existing branch name will enable git to create a new branch out of the head of that branch instead of the current checked out branch's head.
+6. All the above commands simply create a local branch and are not tracked on remote. If you check in the github repository branches, this branch will not be available because of the said reason. In order to make this branch available on remote, and also, track it, do the below command.
+7. `git push -u <remote_name> <branch_name>` : This command is similar to the command that we execute while creating a repository.
+8. `git push --set-upstream <remote_name> <branch_name>` : --set-upstream flag is equivalent of -u flag.
+9. `git branch -vv` : This command shows all the tracked branches.
+10. If you try to push a commit 
 
 ### Uninitializing the Git repository
 
